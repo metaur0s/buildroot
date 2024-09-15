@@ -1,0 +1,12 @@
+diff --git a/include/libnetlink.h b/include/libnetlink.h
+index 30f0c2d2..77e81815 100644
+--- a/include/libnetlink.h
++++ b/include/libnetlink.h
+@@ -12,6 +12,7 @@
+ #include <linux/neighbour.h>
+ #include <linux/netconf.h>
+ #include <arpa/inet.h>
++#include <endian.h>
+ 
+ struct rtnl_handle {
+ 	int			fd;

@@ -148,47 +148,26 @@ else
 LIBCURL_CONF_OPTS += --without-libgsasl
 endif
 
-ifeq ($(BR2_PACKAGE_LIBCURL_COOKIES_SUPPORT),y)
-LIBCURL_CONF_OPTS += --enable-cookies
-else
-LIBCURL_CONF_OPTS += --disable-cookies
-endif
-
-ifeq ($(BR2_PACKAGE_LIBCURL_PROXY_SUPPORT),y)
-LIBCURL_CONF_OPTS += --enable-proxy
-else
-LIBCURL_CONF_OPTS += --disable-proxy
-endif
-
-ifeq ($(BR2_PACKAGE_LIBCURL_WEBSOCKETS_SUPPORT),y)
-LIBCURL_CONF_OPTS += --enable-websockets
-else
-LIBCURL_CONF_OPTS += --disable-websockets
-endif
-
-ifeq ($(BR2_PACKAGE_LIBCURL_EXTRA_PROTOCOLS_FEATURES),y)
+# speedyb0y
+# NOTE: REMOVED BR2_PACKAGE_LIBCURL_EXTRA_PROTOCOLS_FEATURES ABOVE
 LIBCURL_CONF_OPTS += \
-	--enable-dict \
-	--enable-gopher \
-	--enable-imap \
-	--enable-pop3 \
-	--enable-rtsp \
-	--enable-smb \
-	--enable-smtp \
-	--enable-telnet \
-	--enable-tftp
-else
-LIBCURL_CONF_OPTS += \
-	--disable-dict \
-	--disable-gopher \
-	--disable-imap \
-	--disable-pop3 \
-	--disable-rtsp \
-	--disable-smb \
-	--disable-smtp \
-	--disable-telnet \
-	--disable-tftp
-endif
+    --disable-kerberos-auth \
+    --disable-aws \
+    --disable-ntlm \
+    --disable-ntlm-wb \
+    --disable-unix-sockets \
+    --disable-tftp \
+    --disable-telnet \
+    --disable-gopher \
+    --disable-dict \
+    --disable-imap \
+    --disable-pop3 \
+    --disable-rtsp \
+    --disable-smb \
+    --disable-smtp \
+    --enable-cookies \
+    --enable-proxy \
+    --disable-websockets
 
 define LIBCURL_FIX_DOT_PC
 	printf 'Requires: openssl\n' >>$(@D)/libcurl.pc.in

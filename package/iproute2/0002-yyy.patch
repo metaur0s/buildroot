@@ -1,0 +1,11 @@
+--- a/rdma/rdma.h	2024-05-25 01:55:53.672755049 -0300
++++ b/rdma/rdma.h	2024-05-25 01:52:58.879425514 -0300
+@@ -10,6 +10,7 @@
+ #include <string.h>
+ #include <errno.h>
+ #include <getopt.h>
++#include <libgen.h>
+ #include <netinet/in.h>
+ #include <libmnl/libmnl.h>
+ #include <rdma/rdma_netlink.h>
+ 

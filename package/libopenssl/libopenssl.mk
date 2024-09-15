@@ -65,6 +65,39 @@ define HOST_LIBOPENSSL_CONFIGURE_CMDS
 		zlib-dynamic
 endef
 
+#no-afalgeng         \
+#no-autoerrinit      \
+#no-crypto-mdebug    \
+#no-devcryptoeng     \
+#no-dgram            \
+#no-docs             \
+#no-dynamic-engine   \
+#no-aria             \
+#no-cast             \
+#no-deprecated       \
+#no-des              \
+#no-dso              \
+#no-fuzz-afl         \
+#no-fuzz-libfuzzer   \
+#no-idea             \
+#no-legacy           \
+#no-mdc2             \
+#no-nextprotoneg     \
+#no-ocsp             \
+#no-padlockeng       \
+#no-pinshared        \
+#no-psk              \
+#no-quic             \
+#enable-rmd160       \
+#no-scrypt           \
+#no-srp              \
+#no-tests            \
+#no-tls1_1-method    \
+#enable-tls1_2-method    \
+#no-ts               \
+#no-unit-test        \
+#no-weak-ssl-ciphers \
+
 define LIBOPENSSL_CONFIGURE_CMDS
 	cd $(@D); \
 		$(TARGET_CONFIGURE_ARGS) \
@@ -77,8 +110,6 @@ define LIBOPENSSL_CONFIGURE_CMDS
 			$(if $(BR2_TOOLCHAIN_HAS_THREADS),threads,no-threads) \
 			$(if $(BR2_STATIC_LIBS),no-shared,shared) \
 			$(if $(BR2_PACKAGE_CRYPTODEV_LINUX),enable-devcryptoeng) \
-			no-rc5 \
-			enable-camellia \
 			no-docs \
 			no-tests \
 			no-fuzz-libfuzzer \
@@ -86,27 +117,33 @@ define LIBOPENSSL_CONFIGURE_CMDS
 			no-afalgeng \
 			$(if $(BR2_PACKAGE_LIBOPENSSL_BIN),,no-apps) \
 			$(if $(BR2_PACKAGE_LIBOPENSSL_ENGINES),,no-engine) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_CHACHA),,no-chacha) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_RC2),,no-rc2) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_RC4),,no-rc4) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_MD2),,no-md2) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_MD4),,no-md4) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_MDC2),,no-mdc2) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_BLAKE2),,no-blake2) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_IDEA),,no-idea) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_SEED),,no-seed) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_DES),,no-des) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_RMD160),,no-rmd160) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_WHIRLPOOL),,no-whirlpool) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_BLOWFISH),,no-bf) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_SSL),,no-ssl) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_SSL3),,no-ssl3) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_WEAK_SSL),,no-weak-ssl-ciphers) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_PSK),,no-psk) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_CAST),,no-cast) \
+			no-weak-ssl-ciphers \
+			no-comp \
+			no-rc2 \
+			no-rc4 \
+			no-rc5 \
+			no-md2 \
+			no-md4 \
+			no-mdc2 \
+			enable-blake2 \
+			no-idea \
+			no-seed \
+			enable-des \
+			no-rmd160 \
+			no-camellia \
+			no-whirlpool \
+			no-bf \
+			no-ssl \
+			no-ssl2 \
+			no-ssl3 \
+			no-dtls1 \
+			no-dtls1-method \
+			no-dtls \
+			enable-chacha \
+			no-psk \
+			no-cast \
 			$(if $(BR2_PACKAGE_LIBOPENSSL_UNSECURE),,no-unit-test no-crypto-mdebug no-autoerrinit) \
 			$(if $(BR2_PACKAGE_LIBOPENSSL_DYNAMIC_ENGINE),,no-dynamic-engine ) \
-			$(if $(BR2_PACKAGE_LIBOPENSSL_ENABLE_COMP),,no-comp) \
 			$(if $(BR2_STATIC_LIBS),zlib,zlib-dynamic) \
 			$(if $(BR2_STATIC_LIBS),no-dso)
 endef
