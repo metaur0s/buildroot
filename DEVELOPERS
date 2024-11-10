@@ -557,6 +557,10 @@ F:	package/vmtouch/
 F:	support/testing/tests/package/test_atftp.py
 F:	support/testing/tests/package/test_zip.py
 
+N:	Brandon Maier <brandon.maier@gmail.com>
+F:	package/dtc/
+F:	support/testing/tests/package/test_dtc*
+
 N:	Brock Williams <brock@cottonwoodcomputer.com>
 F:	package/pdmenu/
 
@@ -567,6 +571,7 @@ F:	boot/ti-k3-boot-firmware/
 F:	boot/ti-k3-r5-loader/
 F:	configs/beagleplay_defconfig
 F:	configs/ti_am62ax_sk_defconfig
+F:	configs/ti_am62px_sk_defconfig
 F:	configs/ti_am62x_sk_defconfig
 F:	configs/ti_am64x_sk_defconfig
 
@@ -1100,6 +1105,7 @@ N:	Falco Hyfing <hyfinglists@gmail.com>
 F:	package/python-pymodbus/
 
 N:	Fiona Klute <fiona.klute@gmx.de>
+F:	package/*/S*
 F:	package/python-aiomqtt/
 F:	package/python-dunamai/
 F:	package/python-poetry-dynamic-versioning/
@@ -1516,7 +1522,9 @@ F:	package/serd/
 F:	package/sord/
 F:	package/sratom/
 F:	package/stb/
+F:	package/superiotool/
 F:	package/tailscale/
+F:	package/uefisettings/
 F:	package/zchunk/
 F:	support/testing/tests/package/sample_python_rtoml.py
 F:	support/testing/tests/package/test_python_rtoml.py
@@ -1853,6 +1861,7 @@ F:	support/testing/tests/package/test_acpica/
 F:	support/testing/tests/package/test_apache.py
 F:	support/testing/tests/package/test_attr.py
 F:	support/testing/tests/package/test_audio_codec_base.py
+F:	support/testing/tests/package/test_audit.py
 F:	support/testing/tests/package/test_bc.py
 F:	support/testing/tests/package/test_bcc.py
 F:	support/testing/tests/package/test_bcc/
