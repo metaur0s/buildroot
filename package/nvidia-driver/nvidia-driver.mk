@@ -5,7 +5,7 @@
 ################################################################################
 
 # NVIDIA drivers now are bundled 64-bit and 32-bit together in one .run file.
-NVIDIA_DRIVER_VERSION = 565.57.01
+NVIDIA_DRIVER_VERSION = 565.77
 NVIDIA_DRIVER_SITE = http://download.nvidia.com/XFree86/Linux-x86_64/$(NVIDIA_DRIVER_VERSION)
 NVIDIA_DRIVER_SOURCE = NVIDIA-Linux-x86_64-$(NVIDIA_DRIVER_VERSION).run
 NVIDIA_DRIVER_LICENSE = NVIDIA Software License
