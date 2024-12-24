@@ -4,10 +4,10 @@
 #
 ################################################################################
 
-NVIDIA_DRIVER_VERSION = 390.151
-NVIDIA_DRIVER_SUFFIX = $(if $(BR2_x86_64),_64)
-NVIDIA_DRIVER_SITE = http://download.nvidia.com/XFree86/Linux-x86$(NVIDIA_DRIVER_SUFFIX)/$(NVIDIA_DRIVER_VERSION)
-NVIDIA_DRIVER_SOURCE = NVIDIA-Linux-x86$(NVIDIA_DRIVER_SUFFIX)-$(NVIDIA_DRIVER_VERSION)$(if $(BR2_x86_64),-no-compat32).run
+# NVIDIA drivers now are bundled 64-bit and 32-bit together in one .run file.
+NVIDIA_DRIVER_VERSION = 565.57.01
+NVIDIA_DRIVER_SITE = http://download.nvidia.com/XFree86/Linux-x86_64/$(NVIDIA_DRIVER_VERSION)
+NVIDIA_DRIVER_SOURCE = NVIDIA-Linux-x86_64-$(NVIDIA_DRIVER_VERSION).run
 NVIDIA_DRIVER_LICENSE = NVIDIA Software License
 NVIDIA_DRIVER_LICENSE_FILES = LICENSE
 NVIDIA_DRIVER_REDISTRIBUTE = NO
@@ -23,30 +23,15 @@ ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_XORG),y)
 NVIDIA_DRIVER_DEPENDENCIES += mesa3d-headers xlib_libX11 xlib_libXext
 NVIDIA_DRIVER_PROVIDES += libgl libegl libgles
 
-# libGL.so.$(NVIDIA_DRIVER_VERSION) is the legacy libGL.so library; it
-# has been replaced with libGL.so.1.0.0. Installing both is technically
-# possible, but great care must be taken to ensure they do not conflict,
-# so that EGL still works. The legacy library exposes an NVidia-specific
-# API, so it should not be needed, except for legacy, binary-only
-# applications (in other words: we don't care).
-#
-# libGL.so.1.0.0 is the new vendor-neutral library, aimed at replacing
-# the old libGL.so.$(NVIDIA_DRIVER_VERSION) library. The latter contains
-# NVidia extensions (which is deemed bad now), while the former follows
-# the newly-introduced vendor-neutral "dispatching" API/ABI:
-#   https://github.com/aritger/linux-opengl-abi-proposal/blob/master/linux-opengl-abi-proposal.txt
-# However, this is not very useful to us, as we don't support multiple
-# GL providers at the same time on the system, which this proposal is
-# aimed at supporting.
-#
-# So we only install the legacy library for now.
 NVIDIA_DRIVER_LIBS_GL = \
 	libGLX.so.0 \
-	libGL.so.$(NVIDIA_DRIVER_VERSION) \
+	libglxserver_nvidia.so.$(NVIDIA_DRIVER_VERSION) \
+	libGL.so.1.7.0 \
 	libGLX_nvidia.so.$(NVIDIA_DRIVER_VERSION)
 
 NVIDIA_DRIVER_LIBS_EGL = \
 	libEGL.so.1.1.0 \
+	libEGL.so.$(NVIDIA_DRIVER_VERSION) \
 	libGLdispatch.so.0 \
 	libEGL_nvidia.so.$(NVIDIA_DRIVER_VERSION)
 
@@ -57,13 +42,18 @@ NVIDIA_DRIVER_LIBS_GLES = \
 	libGLESv2_nvidia.so.$(NVIDIA_DRIVER_VERSION)
 
 NVIDIA_DRIVER_LIBS_MISC = \
+	libnvidia-allocator.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-api.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-cfg.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-eglcore.so.$(NVIDIA_DRIVER_VERSION) \
-	libnvidia-egl-wayland.so.1.0.2 \
+	libnvidia-egl-gbm.so.1.1.1 \
+	libnvidia-egl-wayland.so.1.1.13 \
+	libnvidia-wayland-client.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-glcore.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-glsi.so.$(NVIDIA_DRIVER_VERSION) \
-	tls/libnvidia-tls.so.$(NVIDIA_DRIVER_VERSION) \
-	libvdpau_nvidia.so.$(NVIDIA_DRIVER_VERSION):vdpau/ \
-	libnvidia-ml.so.$(NVIDIA_DRIVER_VERSION)
+	libnvidia-glvkspirv.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-ml.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-rtcore.so.$(NVIDIA_DRIVER_VERSION)
 
 NVIDIA_DRIVER_LIBS += \
 	$(NVIDIA_DRIVER_LIBS_GL) \
@@ -87,13 +77,26 @@ endef
 # wants to run a third-party program developed under such an agreement).
 ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_PRIVATE_LIBS),y)
 NVIDIA_DRIVER_LIBS += \
-	libnvidia-ifr.so.$(NVIDIA_DRIVER_VERSION) \
-	libnvidia-fbc.so.$(NVIDIA_DRIVER_VERSION)
+	libnvidia-fbc.so.$(NVIDIA_DRIVER_VERSION) /
+	libnvidia-ifr.so.$(NVIDIA_DRIVER_VERSION) /
+	libnvidia-ngx.so.$(NVIDIA_DRIVER_VERSION) /
+	libnvidia-opticalflow.so.$(NVIDIA_DRIVER_VERSION) /
+	libnvoptix.so.$(NVIDIA_DRIVER_VERSION)
+endif
+
+# Include GTK libraries (if required)
+ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_GTK),y)
+NVIDIA_DRIVER_LIBS += \
+	libnvidia-gtk2.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-gtk3.so.$(NVIDIA_DRIVER_VERSION)
 endif
 
 # We refer to the destination path; the origin file has no directory component
 NVIDIA_DRIVER_LIBS += \
 	nvidia_drv.so:xorg/modules/drivers/ \
+	libnvidia-pkcs11.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-pkcs11-openssl3.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-tls.so.$(NVIDIA_DRIVER_VERSION) \
 	libglx.so.$(NVIDIA_DRIVER_VERSION):xorg/modules/extensions/
 
 # libglx needs a symlink according to the driver README. It has no SONAME
@@ -107,11 +110,13 @@ endif # X drivers
 ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_CUDA),y)
 NVIDIA_DRIVER_LIBS += \
 	libcuda.so.$(NVIDIA_DRIVER_VERSION) \
-	libnvidia-compiler.so.$(NVIDIA_DRIVER_VERSION) \
+	libcudadebugger.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvcuvid.so.$(NVIDIA_DRIVER_VERSION) \
-	libnvidia-fatbinaryloader.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-encode.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-gpucomp.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-nvvm.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-ptxjitcompiler.so.$(NVIDIA_DRIVER_VERSION) \
-	libnvidia-encode.so.$(NVIDIA_DRIVER_VERSION)
+	libvdpau_nvidia.so.$(NVIDIA_DRIVER_VERSION)
 ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_CUDA_PROGS),y)
 NVIDIA_DRIVER_PROGS = nvidia-cuda-mps-control nvidia-cuda-mps-server
 endif
@@ -140,7 +145,8 @@ NVIDIA_DRIVER_MODULE_MAKE_OPTS = \
 	IGNORE_CC_MISMATCH=1 \
 	NV_KERNEL_SOURCES="$(LINUX_DIR)" \
 	NV_KERNEL_OUTPUT="$(LINUX_DIR)" \
-	NV_KERNEL_MODULES="$(NVIDIA_DRIVER_MODULES)"
+	NV_KERNEL_MODULES="$(NVIDIA_DRIVER_MODULES)" \
+	NV_SPECTRE_V2=0
 
 NVIDIA_DRIVER_MODULE_SUBDIRS = kernel
 
@@ -152,8 +158,9 @@ endif # BR2_PACKAGE_NVIDIA_DRIVER_MODULE == y
 # virtually everywhere, and it is fine enough to provide useful options.
 # Except it can't extract into an existing (even empty) directory.
 define NVIDIA_DRIVER_EXTRACT_CMDS
-	$(SHELL) $(NVIDIA_DRIVER_DL_DIR)/$(NVIDIA_DRIVER_SOURCE) --extract-only --target \
-		$(@D)/tmp-extract
+	$(SHELL) $(NVIDIA_DRIVER_DL_DIR)/$(NVIDIA_DRIVER_SOURCE) --extract-only \
+		$(if $(BR2_x86_64),--no-install-compat32-libs) \
+		--target $(@D)/tmp-extract
 	chmod u+w -R $(@D)
 	mv $(@D)/tmp-extract/* $(@D)/tmp-extract/.manifest $(@D)
 	rm -rf $(@D)/tmp-extract
