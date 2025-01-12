@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PHP_VERSION = 8.3.14
+PHP_VERSION = 8.3.15
 PHP_SITE = https://www.php.net/distributions
 PHP_SOURCE = php-$(PHP_VERSION).tar.xz
 PHP_INSTALL_STAGING = YES
@@ -378,6 +378,13 @@ HOST_PHP_DEPENDENCIES = \
 	host-openssl \
 	host-pcre2 \
 	host-pkgconf
+
+# PHP can't be AUTORECONFed the standard way unfortunately
+HOST_PHP_DEPENDENCIES += host-autoconf host-automake host-libtool
+define HOST_PHP_BUILDCONF
+	cd $(@D) ; $(HOST_MAKE_ENV) ./buildconf --force
+endef
+HOST_PHP_PRE_CONFIGURE_HOOKS += HOST_PHP_BUILDCONF
 
 $(eval $(autotools-package))
 $(eval $(host-autotools-package))
