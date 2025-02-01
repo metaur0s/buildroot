@@ -1091,6 +1091,7 @@ F:	package/python-pymodbus/
 
 N:	Fiona Klute <fiona.klute@gmx.de>
 F:	package/*/S*
+F:	package/panel-mipi-dbi-firmware/
 F:	package/python-aiomqtt/
 F:	package/python-dunamai/
 F:	package/python-poetry-dynamic-versioning/
@@ -2426,6 +2427,7 @@ F:	board/versal/
 F:	board/xilinx/
 F:	board/zynq/
 F:	board/zynqmp/
+F:	boot/xilinx-embeddedsw/
 F:	boot/xilinx-prebuilt/
 F:	configs/versal_vck190_defconfig
 F:	configs/versal_vek280_defconfig
@@ -2563,6 +2565,10 @@ F:	support/testing/tests/package/test_lxc/
 
 N:	Patrick Oppenlander <patrick.oppenlander@gmail.com>
 F:	package/minisign/
+
+N:	Patrik Olsson <johan.patrik.olsson@gmail.com>
+F:	board/radxa/rock4se
+F:	configs/rock4se_defconfig
 
 N:	Paul Cercueil <paul@crapouillou.net>
 F:	package/libiio/
@@ -2943,12 +2949,14 @@ F:	package/sdbus-cpp/
 N:	Sergey Matyukevich <geomatsi@gmail.com>
 F:	boot/arm-trusted-firmware/
 F:	board/linksprite/pcduino
+F:	board/orangepi/orangepi-5-plus
 F:	board/orangepi/orangepi-zero
 F:	board/orangepi/orangepi-one
 F:	board/orangepi/orangepi-pc-plus/
 F:	board/orangepi/orangepi-zero-plus2/
 F:	board/orangepi/orangepi-zero2w/
 F:	configs/linksprite_pcduino_defconfig
+F:	configs/orangepi_5_plus_defconfig
 F:	configs/orangepi_one_defconfig
 F:	configs/orangepi_pc_plus_defconfig
 F:	configs/orangepi_zero_defconfig
@@ -3023,6 +3031,18 @@ F:	package/glmark2/
 F:	package/libvpx/
 F:	package/mesa3d-demos/
 F:	package/ti-gfx/
+
+N:	Stefan Hager <stefan.hager@ginzinger.com>
+F:	package/cpuinfo/
+F:	package/farmhash/
+F:	package/fp16/
+F:	package/fft2d/
+F:	package/gemmlowp/
+F:	package/psimd/
+F:	package/pthreadpool/
+F:	package/ruy/
+F:	package/tensorflow-lite/
+F:	package/xnnpack/
 
 N:	Stefan Nickl <Stefan.Nickl@gmail.com>
 F:	board/freescale/imx8dxlevk/
@@ -3212,7 +3232,6 @@ F:	support/testing/tests/package/test_python_flask_expects_json.py
 F:	support/testing/tests/package/test_python_git.py
 F:	support/testing/tests/package/test_python_unittest_xml_reporting.py
 F:	support/testing/tests/toolchain/test_external_arm.py
-F:	support/testing/tests/toolchain/test_external_synopsys.py
 F:	toolchain/
 
 N:	Timo Ketola <timo.ketola@exertus.fi>
