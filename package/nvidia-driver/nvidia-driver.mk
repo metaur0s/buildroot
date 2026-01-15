@@ -77,10 +77,10 @@ endef
 # wants to run a third-party program developed under such an agreement).
 ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_PRIVATE_LIBS),y)
 NVIDIA_DRIVER_LIBS += \
-	libnvidia-fbc.so.$(NVIDIA_DRIVER_VERSION) /
-	libnvidia-ifr.so.$(NVIDIA_DRIVER_VERSION) /
-	libnvidia-ngx.so.$(NVIDIA_DRIVER_VERSION) /
-	libnvidia-opticalflow.so.$(NVIDIA_DRIVER_VERSION) /
+	libnvidia-fbc.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-ifr.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-ngx.so.$(NVIDIA_DRIVER_VERSION) \
+	libnvidia-opticalflow.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvoptix.so.$(NVIDIA_DRIVER_VERSION)
 endif
 
