@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-LIBURING_VERSION = origin/master
+LIBURING_VERSION = liburing-2.13
+LIBURING_SOURCE = https://github.com/axboe/liburing/archive/3a59094ca8197c9d598de0fdce50e63ba9d67196.tar.gz
 LIBURING_SITE = https://github.com/axboe/liburing
-LIBURING_SITE_METHOD = git
 LIBURING_LICENSE = (GPL-2.0 with exceptions and LGPL-2.1+) or MIT
 LIBURING_LICENSE_FILES = COPYING COPYING.GPL LICENSE README
 LIBURING_INSTALL_STAGING = YES
