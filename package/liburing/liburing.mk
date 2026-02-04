@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-LIBURING_VERSION = 3a59094ca8197c9d598de0fdce50e63ba9d67196
+LIBURING_VERSION = origin/master
 LIBURING_SITE = https://github.com/axboe/liburing
 LIBURING_SITE_METHOD = git
 LIBURING_LICENSE = (GPL-2.0 with exceptions and LGPL-2.1+) or MIT
