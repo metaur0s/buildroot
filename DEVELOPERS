@@ -155,7 +155,8 @@ N:	Alexey Lukyanchuk <skif@skif-web.ru>
 F:	package/zabbix/
 
 N: 	Alexis Lothoré <alexis.lothore@bootlin.com>
-F: 	package/python-scp
+F:	package/libxmlsec1/
+F: 	package/python-scp/
 
 N:	Alistair Francis <alistair@alistair23.me>
 F:	board/sifive/
@@ -3481,6 +3482,7 @@ F:	package/tpm2-pkcs11/
 N:	Yann E. MORIN <yann.morin@orange.com>
 F:	.editorconfig
 F:	package/gpsd/
+F:	package/mosquitto/
 F:	package/skopeo/
 
 N:	Yegor Yefremov <yegorslists@googlemail.com>
