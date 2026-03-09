@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-LIBURING_VERSION = liburing-3a59094ca8197c9d598de0fdce50e63ba9d67196
-LIBURING_SOURCE = 3a59094ca8197c9d598de0fdce50e63ba9d67196.tar.gz
+LIBURING_VERSION = liburing-829c805c7285c31d099166708c92e459fa1bc397
+LIBURING_SOURCE = 829c805c7285c31d099166708c92e459fa1bc397.tar.gz
 LIBURING_SITE = https://github.com/axboe/liburing/archive
 LIBURING_LICENSE = (GPL-2.0 with exceptions and LGPL-2.1+) or MIT
 LIBURING_LICENSE_FILES = COPYING COPYING.GPL LICENSE README
