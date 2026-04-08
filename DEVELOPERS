@@ -537,6 +537,7 @@ F:	package/x264/
 F:	package/x265/
 F:	package/xmrig/
 F:	package/ytree/
+F:	package/zix/
 F:	package/znc/
 F:	support/testing/tests/package/test_perl_html_parser.py
 
@@ -1739,7 +1740,6 @@ F:	package/dawgdic/
 F:	package/libphidget/
 F:	package/phidgetwebservice/
 F:	package/rapidxml/
-F:	package/sphinxbase/
 
 N:	Joris Offouga <offougajoris@gmail.com>
 F:	package/python-colorlog/
@@ -3051,7 +3051,6 @@ F:	package/daq/
 F:	package/libgdiplus/
 F:	package/pimd/
 F:	package/sloci-image/
-F:	package/snort/
 F:	package/stella/
 F:	package/tio/
 F:	package/traceroute/
@@ -3061,6 +3060,7 @@ F:	package/wolfssl/
 
 N:	Shubham Chakraborty <chakrabortyshubham66@gmail.com>
 F:	package/ccache/
+F:	package/hyperfine/
 
 N:	Simon Dawson <spdawson@gmail.com>
 F:	boot/at91bootstrap3/
