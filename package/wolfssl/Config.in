@@ -32,10 +32,778 @@ config BR2_PACKAGE_WOLFSSL_ALL
 comment "all features, except SSLv3 needs a toolchain w/ dynamic library"
 	depends on BR2_STATIC_LIBS
 
-config BR2_PACKAGE_WOLFSSL_SSLV3
-	bool "enable SSLv3"
-	help
-	  Enable SSL version 3.0 support.
+config    BR2_PACKAGE_WOLFSSL_AES
+    bool "BR2_PACKAGE_WOLFSSL_AES"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_AESCBC
+    bool "BR2_PACKAGE_WOLFSSL_AESCBC"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESCCM
+    bool "BR2_PACKAGE_WOLFSSL_AESCCM"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESCFB
+    bool "BR2_PACKAGE_WOLFSSL_AESCFB"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESCTR
+    bool "BR2_PACKAGE_WOLFSSL_AESCTR"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESCTS
+    bool "BR2_PACKAGE_WOLFSSL_AESCTS"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESEAX
+    bool "BR2_PACKAGE_WOLFSSL_AESEAX"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESECB
+    bool "BR2_PACKAGE_WOLFSSL_AESECB"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESGCM
+    bool "BR2_PACKAGE_WOLFSSL_AESGCM"
+    default y
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESGCM_STREAM
+    bool "BR2_PACKAGE_WOLFSSL_AESGCM_STREAM"
+    default y
+    depends on BR2_PACKAGE_WOLFSSL_AESGCM
+
+config    BR2_PACKAGE_WOLFSSL_AESKEYWRAP
+    bool "BR2_PACKAGE_WOLFSSL_AESKEYWRAP"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESNI_WITH_AVX
+    bool "BR2_PACKAGE_WOLFSSL_AESNI_WITH_AVX"
+    default y
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESOFB
+    bool "BR2_PACKAGE_WOLFSSL_AESOFB"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESSIV
+    bool "BR2_PACKAGE_WOLFSSL_AESSIV"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESXTS
+    bool "BR2_PACKAGE_WOLFSSL_AESXTS"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AES
+
+config    BR2_PACKAGE_WOLFSSL_AESXTS_STREAM
+    bool "BR2_PACKAGE_WOLFSSL_AESXTS_STREAM"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_AESXTS
+
+config    BR2_PACKAGE_WOLFSSL_AFALG
+    bool "BR2_PACKAGE_WOLFSSL_AFALG"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_ALIGNDATA
+    bool "BR2_PACKAGE_WOLFSSL_ALIGNDATA"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_ALPN
+    bool "BR2_PACKAGE_WOLFSSL_ALPN"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_AMDRAND
+    bool "BR2_PACKAGE_WOLFSSL_AMDRAND"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_AMDRDSEED
+    bool "BR2_PACKAGE_WOLFSSL_AMDRDSEED"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_ARC4
+    bool "BR2_PACKAGE_WOLFSSL_ARC4"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_ASM
+    bool "BR2_PACKAGE_WOLFSSL_ASM"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_ASYNCCRYPT
+    bool "BR2_PACKAGE_WOLFSSL_ASYNCCRYPT"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_ASYNCCRYPT_SW
+    bool "BR2_PACKAGE_WOLFSSL_ASYNCCRYPT_SW"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_ASYNCTHREADS
+    bool "BR2_PACKAGE_WOLFSSL_ASYNCTHREADS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_ATOMICUSER
+    bool "BR2_PACKAGE_WOLFSSL_ATOMICUSER"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_BIGCACHE
+    bool "BR2_PACKAGE_WOLFSSL_BIGCACHE"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_BIND
+    bool "BR2_PACKAGE_WOLFSSL_BIND"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_BLAKE2
+    bool "BR2_PACKAGE_WOLFSSL_BLAKE2"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_BLAKE2B
+    bool "BR2_PACKAGE_WOLFSSL_BLAKE2B"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_BLAKE2S
+    bool "BR2_PACKAGE_WOLFSSL_BLAKE2S"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_BRAINPOOL
+    bool "BR2_PACKAGE_WOLFSSL_BRAINPOOL"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_BUMP
+    bool "BR2_PACKAGE_WOLFSSL_BUMP"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CAMELLIA
+    bool "BR2_PACKAGE_WOLFSSL_CAMELLIA"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CERTGEN
+    bool "BR2_PACKAGE_WOLFSSL_CERTGEN"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CERTSERVICE
+    bool "BR2_PACKAGE_WOLFSSL_CERTSERVICE"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CERT_SETUP_CB
+    bool "BR2_PACKAGE_WOLFSSL_CERT_SETUP_CB"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CERT_WITH_EXTERN_PSK
+    bool "BR2_PACKAGE_WOLFSSL_CERT_WITH_EXTERN_PSK"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CHACHA
+    bool "BR2_PACKAGE_WOLFSSL_CHACHA"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CHRONY
+    bool "BR2_PACKAGE_WOLFSSL_CHRONY"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CMAC
+    bool "BR2_PACKAGE_WOLFSSL_CMAC"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CMAC_KDF
+    bool "BR2_PACKAGE_WOLFSSL_CMAC_KDF"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_COMPKEY
+    bool "BR2_PACKAGE_WOLFSSL_COMPKEY"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CRYPTTESTS
+    bool "BR2_PACKAGE_WOLFSSL_CRYPTTESTS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CRYPTTESTS_LIBS
+    bool "BR2_PACKAGE_WOLFSSL_CRYPTTESTS_LIBS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CUDA
+    bool "BR2_PACKAGE_WOLFSSL_CUDA"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CURVE25519
+    bool "BR2_PACKAGE_WOLFSSL_CURVE25519"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_CURVE448
+    bool "BR2_PACKAGE_WOLFSSL_CURVE448"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_DEBUG
+    bool "BR2_PACKAGE_WOLFSSL_DEBUG"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_DES3
+    bool "BR2_PACKAGE_WOLFSSL_DES3"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_DEVCRYPTO
+    bool "BR2_PACKAGE_WOLFSSL_DEVCRYPTO"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_DH
+    bool "BR2_PACKAGE_WOLFSSL_DH"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_DILITHIUM
+    bool "BR2_PACKAGE_WOLFSSL_DILITHIUM"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_DO178
+    bool "BR2_PACKAGE_WOLFSSL_DO178"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_DSA
+    bool "BR2_PACKAGE_WOLFSSL_DSA"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_DTLS
+    bool "BR2_PACKAGE_WOLFSSL_DTLS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_DTLS13
+    bool "BR2_PACKAGE_WOLFSSL_DTLS13"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_EARLYDATA
+    bool "BR2_PACKAGE_WOLFSSL_EARLYDATA"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_ECC
+    bool "BR2_PACKAGE_WOLFSSL_ECC"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_ECH
+    bool "BR2_PACKAGE_WOLFSSL_ECH"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_ED25519
+    bool "BR2_PACKAGE_WOLFSSL_ED25519"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_ED25519_STREAM
+    bool "BR2_PACKAGE_WOLFSSL_ED25519_STREAM"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_ED25519
+
+config    BR2_PACKAGE_WOLFSSL_ED448
+    bool "BR2_PACKAGE_WOLFSSL_ED448"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_ED448_STREAM
+    bool "BR2_PACKAGE_WOLFSSL_ED448_STREAM"
+    default n
+    depends on BR2_PACKAGE_WOLFSSL_ED448
+
+config    BR2_PACKAGE_WOLFSSL_ENCKEYS
+    bool "BR2_PACKAGE_WOLFSSL_ENCKEYS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_ERRORSTRINGS
+    bool "BR2_PACKAGE_WOLFSSL_ERRORSTRINGS"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_EXAMPLES
+    bool "BR2_PACKAGE_WOLFSSL_EXAMPLES"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_EXPERIMENTAL
+    bool "BR2_PACKAGE_WOLFSSL_EXPERIMENTAL"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_EXTENDED_MASTER
+    bool "BR2_PACKAGE_WOLFSSL_EXTENDED_MASTER"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_EXTRA_PQC_HYBRIDS
+    bool "BR2_PACKAGE_WOLFSSL_EXTRA_PQC_HYBRIDS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_FALCON
+    bool "BR2_PACKAGE_WOLFSSL_FALCON"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_FFMPEG
+    bool "BR2_PACKAGE_WOLFSSL_FFMPEG"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_FILESYSTEM
+    bool "BR2_PACKAGE_WOLFSSL_FILESYSTEM"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_FIPS
+    bool "BR2_PACKAGE_WOLFSSL_FIPS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_FORTRESS
+    bool "BR2_PACKAGE_WOLFSSL_FORTRESS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_HAPROXY
+    bool "BR2_PACKAGE_WOLFSSL_HAPROXY"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_HITCH
+    bool "BR2_PACKAGE_WOLFSSL_HITCH"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_HKDF
+    bool "BR2_PACKAGE_WOLFSSL_HKDF"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_HMAC
+    bool "BR2_PACKAGE_WOLFSSL_HMAC"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_HPKE
+    bool "BR2_PACKAGE_WOLFSSL_HPKE"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_HUGECACHE
+    bool "BR2_PACKAGE_WOLFSSL_HUGECACHE"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_IOPOOL
+    bool "BR2_PACKAGE_WOLFSSL_IOPOOL"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_IPV6
+    bool "BR2_PACKAGE_WOLFSSL_IPV6"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_JNI
+    bool "BR2_PACKAGE_WOLFSSL_JNI"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_KCAPI
+    bool "BR2_PACKAGE_WOLFSSL_KCAPI"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_KEYLOG_EXPORT
+    bool "BR2_PACKAGE_WOLFSSL_KEYLOG_EXPORT"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_KRB
+    bool "BR2_PACKAGE_WOLFSSL_KRB"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_KYBER
+    bool "BR2_PACKAGE_WOLFSSL_KYBER"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_LIBSSH2
+    bool "BR2_PACKAGE_WOLFSSL_LIBSSH2"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_LIBWEBSOCKETS
+    bool "BR2_PACKAGE_WOLFSSL_LIBWEBSOCKETS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_LIGHTY
+    bool "BR2_PACKAGE_WOLFSSL_LIGHTY"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_MAXFRAGMENT
+    bool "BR2_PACKAGE_WOLFSSL_MAXFRAGMENT"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_MCAST
+    bool "BR2_PACKAGE_WOLFSSL_MCAST"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_MD2
+    bool "BR2_PACKAGE_WOLFSSL_MD2"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_MD4
+    bool "BR2_PACKAGE_WOLFSSL_MD4"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_MD5
+    bool "BR2_PACKAGE_WOLFSSL_MD5"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_MEMCACHED
+    bool "BR2_PACKAGE_WOLFSSL_MEMCACHED"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_MEMTEST
+    bool "BR2_PACKAGE_WOLFSSL_MEMTEST"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_MLDSA
+    bool "BR2_PACKAGE_WOLFSSL_MLDSA"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_MLKEM
+    bool "BR2_PACKAGE_WOLFSSL_MLKEM"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_MOSQUITTO
+    bool "BR2_PACKAGE_WOLFSSL_MOSQUITTO"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_NET_SNMP
+    bool "BR2_PACKAGE_WOLFSSL_NET_SNMP"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_NGINX
+    bool "BR2_PACKAGE_WOLFSSL_NGINX"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_NTP
+    bool "BR2_PACKAGE_WOLFSSL_NTP"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_NULLCIPHER
+    bool "BR2_PACKAGE_WOLFSSL_NULLCIPHER"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_OCSP
+    bool "BR2_PACKAGE_WOLFSSL_OCSP"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_OCSPSTAPLING
+    bool "BR2_PACKAGE_WOLFSSL_OCSPSTAPLING"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_OCSPSTAPLING2
+    bool "BR2_PACKAGE_WOLFSSL_OCSPSTAPLING2"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_OCSP_RESPONDER
+    bool "BR2_PACKAGE_WOLFSSL_OCSP_RESPONDER"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_OLDTLS
+    bool "BR2_PACKAGE_WOLFSSL_OLDTLS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_OPENLDAP
+    bool "BR2_PACKAGE_WOLFSSL_OPENLDAP"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_OPENRESTY
+    bool "BR2_PACKAGE_WOLFSSL_OPENRESTY"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_OPENSSH
+    bool "BR2_PACKAGE_WOLFSSL_OPENSSH"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_OPENSSLCOEXIST
+    bool "BR2_PACKAGE_WOLFSSL_OPENSSLCOEXIST"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_OPENVPN
+    bool "BR2_PACKAGE_WOLFSSL_OPENVPN"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_PKCS11
+    bool "BR2_PACKAGE_WOLFSSL_PKCS11"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_PKCS12
+    bool "BR2_PACKAGE_WOLFSSL_PKCS12"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_PKCS7
+    bool "BR2_PACKAGE_WOLFSSL_PKCS7"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_PKCS8
+    bool "BR2_PACKAGE_WOLFSSL_PKCS8"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_POLY1305
+    bool "BR2_PACKAGE_WOLFSSL_POLY1305"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_PQC_HYBRIDS
+    bool "BR2_PACKAGE_WOLFSSL_PQC_HYBRIDS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_PSA
+    bool "BR2_PACKAGE_WOLFSSL_PSA"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_PSK
+    bool "BR2_PACKAGE_WOLFSSL_PSK"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_QT
+    bool "BR2_PACKAGE_WOLFSSL_QT"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_QUIC
+    bool "BR2_PACKAGE_WOLFSSL_QUIC"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_RC2
+    bool "BR2_PACKAGE_WOLFSSL_RC2"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_RENEGOTIATION_INDICATION
+    bool "BR2_PACKAGE_WOLFSSL_RENEGOTIATION_INDICATION"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_RIPEMD
+    bool "BR2_PACKAGE_WOLFSSL_RIPEMD"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_RPK
+    bool "BR2_PACKAGE_WOLFSSL_RPK"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_RSA
+    bool "BR2_PACKAGE_WOLFSSL_RSA"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_RSAPSS
+    bool "BR2_PACKAGE_WOLFSSL_RSAPSS"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_RSYSLOG
+    bool "BR2_PACKAGE_WOLFSSL_RSYSLOG"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SAVECERT
+    bool "BR2_PACKAGE_WOLFSSL_SAVECERT"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SAVESESSION
+    bool "BR2_PACKAGE_WOLFSSL_SAVESESSION"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SCEP
+    bool "BR2_PACKAGE_WOLFSSL_SCEP"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SCRYPT
+    bool "BR2_PACKAGE_WOLFSSL_SCRYPT"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SCTP
+    bool "BR2_PACKAGE_WOLFSSL_SCTP"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SECURE_RENEGOTIATION
+    bool "BR2_PACKAGE_WOLFSSL_SECURE_RENEGOTIATION"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SESSIONEXPORT
+    bool "BR2_PACKAGE_WOLFSSL_SESSIONEXPORT"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SESSION_TICKET
+    bool "BR2_PACKAGE_WOLFSSL_SESSION_TICKET"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SHA
+    bool "BR2_PACKAGE_WOLFSSL_SHA"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SHA224
+    bool "BR2_PACKAGE_WOLFSSL_SHA224"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SHA256
+    bool "BR2_PACKAGE_WOLFSSL_SHA256"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_SHA3
+    bool "BR2_PACKAGE_WOLFSSL_SHA3"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SHA384
+    bool "BR2_PACKAGE_WOLFSSL_SHA384"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SHA512
+    bool "BR2_PACKAGE_WOLFSSL_SHA512"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_SHAKE128
+    bool "BR2_PACKAGE_WOLFSSL_SHAKE128"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SHAKE256
+    bool "BR2_PACKAGE_WOLFSSL_SHAKE256"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SIGNAL
+    bool "BR2_PACKAGE_WOLFSSL_SIGNAL"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SINGLETHREADED
+    bool "BR2_PACKAGE_WOLFSSL_SINGLETHREADED"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_SIPHASH
+    bool "BR2_PACKAGE_WOLFSSL_SIPHASH"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SLHDSA
+    bool "BR2_PACKAGE_WOLFSSL_SLHDSA"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SM2
+    bool "BR2_PACKAGE_WOLFSSL_SM2"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SM3
+    bool "BR2_PACKAGE_WOLFSSL_SM3"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SM4_CBC
+    bool "BR2_PACKAGE_WOLFSSL_SM4_CBC"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SM4_CCM
+    bool "BR2_PACKAGE_WOLFSSL_SM4_CCM"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SM4_CTR
+    bool "BR2_PACKAGE_WOLFSSL_SM4_CTR"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SM4_ECB
+    bool "BR2_PACKAGE_WOLFSSL_SM4_ECB"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SM4_GCM
+    bool "BR2_PACKAGE_WOLFSSL_SM4_GCM"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SMALLCACHE
+    bool "BR2_PACKAGE_WOLFSSL_SMALLCACHE"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SMIME
+    bool "BR2_PACKAGE_WOLFSSL_SMIME"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SNI
+    bool "BR2_PACKAGE_WOLFSSL_SNI"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_SNIFFER
+    bool "BR2_PACKAGE_WOLFSSL_SNIFFER"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SRP
+    bool "BR2_PACKAGE_WOLFSSL_SRP"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SRTP
+    bool "BR2_PACKAGE_WOLFSSL_SRTP"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SRTP_KDF
+    bool "BR2_PACKAGE_WOLFSSL_SRTP_KDF"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SSH
+    bool "BR2_PACKAGE_WOLFSSL_SSH"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SSLV3
+    bool "BR2_PACKAGE_WOLFSSL_SSLV3"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_STRONGSWAN
+    bool "BR2_PACKAGE_WOLFSSL_STRONGSWAN"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_SUPPORTEDCURVES
+    bool "BR2_PACKAGE_WOLFSSL_SUPPORTEDCURVES"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_SYS_CA_CERTS
+    bool "BR2_PACKAGE_WOLFSSL_SYS_CA_CERTS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_TAILSCALE
+    bool "BR2_PACKAGE_WOLFSSL_TAILSCALE"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_TESTCERT
+    bool "BR2_PACKAGE_WOLFSSL_TESTCERT"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_TITANCACHE
+    bool "BR2_PACKAGE_WOLFSSL_TITANCACHE"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_TLS13
+    bool "BR2_PACKAGE_WOLFSSL_TLS13"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_TLSV10
+    bool "BR2_PACKAGE_WOLFSSL_TLSV10"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_TLSV12
+    bool "BR2_PACKAGE_WOLFSSL_TLSV12"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_TRUNCATEDHMAC
+    bool "BR2_PACKAGE_WOLFSSL_TRUNCATEDHMAC"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_WEBCLIENT
+    bool "BR2_PACKAGE_WOLFSSL_WEBCLIENT"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_WEBSERVER
+    bool "BR2_PACKAGE_WOLFSSL_WEBSERVER"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_WOLFCLU
+    bool "BR2_PACKAGE_WOLFSSL_WOLFCLU"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_WOLFGUARD
+    bool "BR2_PACKAGE_WOLFSSL_WOLFGUARD"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_WOLFSSH
+    bool "BR2_PACKAGE_WOLFSSL_WOLFSSH"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_WOLFTPM
+    bool "BR2_PACKAGE_WOLFSSL_WOLFTPM"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_WPAS
+    bool "BR2_PACKAGE_WOLFSSL_WPAS"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_WPAS_DPP
+    bool "BR2_PACKAGE_WOLFSSL_WPAS_DPP"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_X963KDF
+    bool "BR2_PACKAGE_WOLFSSL_X963KDF"
+    default n
+
+config    BR2_PACKAGE_WOLFSSL_XCHACHA
+    bool "BR2_PACKAGE_WOLFSSL_XCHACHA"
+    default n
 
 endif
 
