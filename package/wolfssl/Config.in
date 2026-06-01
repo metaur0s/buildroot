@@ -32,6 +32,13 @@ config BR2_PACKAGE_WOLFSSL_ALL
 comment "all features, except SSLv3 needs a toolchain w/ dynamic library"
 	depends on BR2_STATIC_LIBS
 
+config    BR2_PACKAGE_WOLFSSL_STATIC
+    bool "BR2_PACKAGE_WOLFSSL_STATIC"
+    default y
+
+config    BR2_PACKAGE_WOLFSSL_SHARED
+    bool "BR2_PACKAGE_WOLFSSL_SHARED"
+    default n
 
 config    BR2_PACKAGE_WOLFSSL_AES
     bool "BR2_PACKAGE_WOLFSSL_AES"
@@ -646,10 +653,6 @@ config    BR2_PACKAGE_WOLFSSL_SHAKE256
     bool "BR2_PACKAGE_WOLFSSL_SHAKE256"
     default n
 
-config    BR2_PACKAGE_WOLFSSL_SHARED
-    bool "BR2_PACKAGE_WOLFSSL_SHARED"
-    default n
-
 config    BR2_PACKAGE_WOLFSSL_SIGNAL
     bool "BR2_PACKAGE_WOLFSSL_SIGNAL"
     default n
@@ -729,10 +732,6 @@ config    BR2_PACKAGE_WOLFSSL_SSH
 config    BR2_PACKAGE_WOLFSSL_SSLV3
     bool "BR2_PACKAGE_WOLFSSL_SSLV3"
     default n
-
-config    BR2_PACKAGE_WOLFSSL_STATIC
-    bool "BR2_PACKAGE_WOLFSSL_STATIC"
-    default y
 
 config    BR2_PACKAGE_WOLFSSL_STRONGSWAN
     bool "BR2_PACKAGE_WOLFSSL_STRONGSWAN"
