@@ -21,6 +21,17 @@ WOLFSSL_CONF_OPTS = \
 	--disable-crypttests \
 	--disable-option-checking
 
+ifeq ($(BR2_PACKAGE_WOLFSSL_STATIC),y)
+    WOLFSSL_CONF_OPTS +=  --enable-static
+else
+    WOLFSSL_CONF_OPTS += --disable-static
+endif
+
+ifeq ($(BR2_PACKAGE_WOLFSSL_SHARED),y)
+    WOLFSSL_CONF_OPTS +=  --enable-shared
+else
+    WOLFSSL_CONF_OPTS += --disable-shared
+endif
 
 ifeq ($(BR2_PACKAGE_WOLFSSL_EXPERIMENTAL),y)
     WOLFSSL_CONF_OPTS +=  --enable-experimental
@@ -1154,18 +1165,6 @@ ifeq ($(BR2_PACKAGE_WOLFSSL_ECC),y)
     WOLFSSL_CONF_OPTS +=  --enable-ecc
 else
     WOLFSSL_CONF_OPTS += --disable-ecc
-endif
-
-ifeq ($(BR2_PACKAGE_WOLFSSL_STATIC),y)
-    WOLFSSL_CONF_OPTS +=  --enable-static
-else
-    WOLFSSL_CONF_OPTS += --disable-static
-endif
-
-ifeq ($(BR2_PACKAGE_WOLFSSL_SHARED),y)
-    WOLFSSL_CONF_OPTS +=  --enable-shared
-else
-    WOLFSSL_CONF_OPTS += --disable-shared
 endif
 
 # enable ARMv8 hardware acceleration
