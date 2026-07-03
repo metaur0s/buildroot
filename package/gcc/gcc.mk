@@ -9,7 +9,6 @@
 #
 
 GCC_VERSION = $(call qstrip,$(BR2_GCC_VERSION))
-GCC_VERSION = 16.5.0
 GCC_SITE = /mnt/hosts/src/gcc
 GCC_SITE_METHOD = local
 GCC_SOURCE = gcc-$(GCC_VERSION).tar.xz
