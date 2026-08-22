@@ -89,4 +89,8 @@ config BR2_PACKAGE_NVIDIA_DRIVER_MODULE
 	  provides Unified Memory access to the GPU and CPU memories for
 	  CUDA programs.
 
+config BR2_PACKAGE_NVIDIA_DRIVER_GTK
+	bool "GTK support"
+	depends on BR2_PACKAGE_NVIDIA_DRIVER_MODULE
+
 endif # BR2_PACKAGE_NVIDIA_DRIVER

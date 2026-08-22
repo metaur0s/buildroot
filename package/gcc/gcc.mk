@@ -9,8 +9,18 @@
 #
 
 GCC_VERSION = $(call qstrip,$(BR2_GCC_VERSION))
-GCC_SITE = $(BR2_GNU_MIRROR:/=)/gcc/gcc-$(GCC_VERSION)
-GCC_SOURCE = gcc-$(GCC_VERSION).tar.xz
+GCC_SITE = /mnt/hosts/src/gcc
+GCC_SITE_METHOD = local
+GCC_SOURCE = gcc-$(GCC_VERSION).tar.zst
+# cd /tmp/
+# git clone --depth 1 git://gcc.gnu.org/git/gcc.git
+# rm -r -f -- gcc/.git
+# mv -- gcc gcc-16.1.0
+# tar -c -f gcc-16.1.0{.tar,}
+# zstd -10 -T6 --rm gcc-16.1.0.tar
+# sha256sum gcc-16.1.0.tar.zst
+# rm -r -f -- gcc-16.1.0
+# mv -v -i -- gcc-16.1.0.tar.zst /mnt/hosts/src/gcc/
 
 HOST_GCC_LICENSE = GPL-2.0, GPL-3.0, LGPL-2.1, LGPL-3.0
 HOST_GCC_LICENSE_FILES = COPYING COPYING3 COPYING.LIB COPYING3.LIB
