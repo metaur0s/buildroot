@@ -159,6 +159,8 @@ F:	package/libxmlsec1/
 F:	package/openscap/
 F: 	package/python-scp/
 F:	support/testing/tests/package/test_libldns.py
+F:	support/testing/tests/package/test_openscap/
+F:	support/testing/tests/package/test_openscap.py
 F:	support/testing/tests/package/test_python_scp.py
 
 N:	Alistair Francis <alistair@alistair23.me>
@@ -1124,6 +1126,9 @@ F:	configs/freescale_imx6ullevk_defconfig
 N:	Falco Hyfing <hyfinglists@gmail.com>
 F:	package/python-pymodbus/
 
+N:	Fengwei Tan <tfx2001@outlook.com>
+F:	support/testing/tests/core/test_flat_stacksize.py
+
 N:	Fiona Klute <fiona.klute@gmx.de>
 F:	package/*/S*
 F:	package/panel-mipi-dbi-firmware/
@@ -1904,6 +1909,7 @@ F:	support/testing/tests/package/test_dosfstools.py
 F:	support/testing/tests/package/test_dosfstools/
 F:	support/testing/tests/package/test_dpdk.py
 F:	support/testing/tests/package/test_ed.py
+F:	support/testing/tests/package/test_erlang.py
 F:	support/testing/tests/package/test_ethtool.py
 F:	support/testing/tests/package/test_ethtool/
 F:	support/testing/tests/package/test_exfatprogs.py
@@ -2043,6 +2049,7 @@ F:	support/testing/tests/package/test_sed.py
 F:	support/testing/tests/package/test_socat.py
 F:	support/testing/tests/package/test_sox.py
 F:	support/testing/tests/package/test_sqlite.py
+F:	support/testing/tests/package/test_squid.py
 F:	support/testing/tests/package/test_strace.py
 F:	support/testing/tests/package/test_stress_ng.py
 F:	support/testing/tests/package/test_swipl.py
