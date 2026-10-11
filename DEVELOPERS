@@ -973,9 +973,6 @@ F:	package/imx-mkimage/
 N:	Erik Stromdahl <erik.stromdahl@gmail.com>
 F:	package/mxsldr/
 
-N:	Ernesto L. Williams Jr <realcontrols@gmail.com>
-F:	package/szip/
-
 N:	Esben Haabendal <esben@haabendal.dk>
 F:	package/python-kiwisolver/
 
@@ -1148,6 +1145,9 @@ F:	support/testing/tests/package/sample_python_pyroute2.py
 F:	support/testing/tests/package/test_nftables.py
 F:	support/testing/tests/package/test_python_networkmanager_goi.py
 F:	support/testing/tests/package/test_python_pyroute2.py
+
+N:	Flaviu Nistor <flaviu.nistor@gmail.com>
+F:	package/python-cramjam/
 
 N:	Flávio Tapajós <flavio.tapajos@newtesc.com.br>
 F:	configs/asus_tinker-s_rk3288_defconfig
@@ -3569,6 +3569,7 @@ F:	package/feh/
 F:	package/hostapd/
 F:	package/imlib2/
 F:	package/kmod/
+F:	package/libaec/
 F:	package/libftdi1/
 F:	package/libical/
 F:	package/libmbim/
