@@ -171,6 +171,7 @@ F:	package/xen/
 N:	Alsey Coleman Miller <alseycmiller@gmail.com>
 F:	package/liblc3/
 F:	package/plutovg/
+F:	package/sdl3_net/
 
 N:	Alvaro G. M <alvaro.gamez@hazent.com>
 F:	package/dcron/
@@ -1494,6 +1495,11 @@ F:	package/gcc-bare-metal/
 F:	package/newlib-bare-metal/
 F:	toolchain/toolchain-bare-metal-buildroot/
 
+N:	Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>
+F:	package/qrtr/
+F:	package/rmtfs/
+F:	package/tqftpserv/
+
 N:	Ilias Apalodimas <apalos@gmail.com>
 F:	package/keepalived/
 
@@ -2267,6 +2273,7 @@ F:	package/python-log-rate-limit/
 F:	package/python-pydantic/
 F:	package/python-pydantic-core/
 F:	package/python-pydantic-settings/
+F:	package/python-questionary/
 F:	package/python-typing-inspection/
 F:	package/python-tzlocal/
 F:	package/python-sdbus-modemmanager/
@@ -2274,6 +2281,7 @@ F:	package/python-sdbus-systemd/
 F:	package/python-varlink/
 F:	package/python-waitress/
 F:	package/python-whitenoise/
+F:	support/testing/tests/package/test_python_questionary.py
 
 N:	Marcin Bis <marcin@bis.org.pl>
 F:	package/bluez5_utils/
@@ -2695,6 +2703,7 @@ F:	board/visionfive/
 F:	boot/shim/
 F:	configs/avenger96_defconfig
 F:	configs/beagleboneai_defconfig
+F:	configs/imx93frdm_defconfig
 F:	configs/lafrite_defconfig
 F:	configs/minnowboard_max_defconfig
 F:	configs/nexbox_a95x_defconfig
@@ -3236,8 +3245,10 @@ F:	package/fcgiwrap/
 
 N:	Thomas Devoogdt <thomas@devoogdt.com>
 F:	package/fluent-bit/
+F:	package/librdkafka/
 F:	package/libsoup3/
 F:	package/yq/
+F:	support/testing/tests/package/test_fluent_bit.py
 
 N:	Thomas Huth <th.huth+br@posteo.eu>
 F:	package/ascii-invaders/
@@ -3501,10 +3512,12 @@ F:	board/stmicroelectronics/stm32f746-disco/
 F:	configs/qemu_riscv32_nommu_virt_defconfig
 F:	configs/stm32f746_disco_sd_defconfig
 F:	package/asterisk/
+F:	package/chawan/
 F:	package/evilwm/
 F:	package/fbv/
 F:	package/libpam-pkcs11/
 F:	package/mksh/
+F:	package/nim/
 F:	package/perl-cgi/
 F:	package/perl-cgi-session/
 F:	package/perl-log-message/
