@@ -76,10 +76,7 @@ endif
 # Build and install the kernel modules if needed
 ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_MODULE),y)
 
-NVIDIA_DRIVER_MODULES = nvidia nvidia-modeset nvidia-drm
-ifeq ($(BR2_x86_64),y)
-NVIDIA_DRIVER_MODULES += nvidia-uvm
-endif
+NVIDIA_DRIVER_MODULES = nvidia nvidia-modeset nvidia-drm nvidia-uvm
 
 # They can't do everything like everyone. They need those variables,
 # because they don't recognise the usual variables set by the kernel
@@ -141,7 +138,6 @@ endef
 # For staging, install libraries and development files
 define NVIDIA_DRIVER_INSTALL_STAGING_CMDS
 	$(call NVIDIA_DRIVER_INSTALL_LIBS,$(STAGING_DIR))
-	$(NVIDIA_DRIVER_INSTALL_GL_DEV)
 endef
 
 # For target, install libraries and X.org modules
@@ -151,12 +147,11 @@ define NVIDIA_DRIVER_INSTALL_TARGET_CMDS
 		$(INSTALL) -D -m 0755 $(@D)/$(p) \
 			$(TARGET_DIR)/usr/bin/$(p)
 	)
-	$(NVIDIA_DRIVER_SYMLINK_LIBGLX)
 	$(NVIDIA_DRIVER_INSTALL_KERNEL_MODULE)
 endef
 
 # Due to a conflict with xserver_xorg-server, this needs to be performed when
 # finalizing the target filesystem to make sure this version is used.
-NVIDIA_DRIVER_TARGET_FINALIZE_HOOKS += NVIDIA_DRIVER_SYMLINK_LIBGLX
+#NVIDIA_DRIVER_TARGET_FINALIZE_HOOKS += NVIDIA_DRIVER_SYMLINK_LIBGLX
 
 $(eval $(generic-package))
