@@ -5,7 +5,7 @@
 ################################################################################
 
 # NVIDIA drivers now are bundled 64-bit and 32-bit together in one .run file.
-NVIDIA_DRIVER_VERSION = 565.77
+NVIDIA_DRIVER_VERSION = 580.196.07
 NVIDIA_DRIVER_SITE = http://download.nvidia.com/XFree86/Linux-x86_64/$(NVIDIA_DRIVER_VERSION)
 NVIDIA_DRIVER_SOURCE = NVIDIA-Linux-x86_64-$(NVIDIA_DRIVER_VERSION).run
 NVIDIA_DRIVER_LICENSE = NVIDIA Software License
@@ -47,8 +47,6 @@ NVIDIA_DRIVER_LIBS_MISC = \
 	libnvidia-cfg.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-eglcore.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-egl-gbm.so.1.1.1 \
-	libnvidia-egl-wayland.so.1.1.13 \
-	libnvidia-wayland-client.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-glcore.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-glsi.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-glvkspirv.so.$(NVIDIA_DRIVER_VERSION) \
@@ -84,13 +82,6 @@ NVIDIA_DRIVER_LIBS += \
 	libnvoptix.so.$(NVIDIA_DRIVER_VERSION)
 endif
 
-# Include GTK libraries (if required)
-ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_GTK),y)
-NVIDIA_DRIVER_LIBS += \
-	libnvidia-gtk2.so.$(NVIDIA_DRIVER_VERSION) \
-	libnvidia-gtk3.so.$(NVIDIA_DRIVER_VERSION)
-endif
-
 # We refer to the destination path; the origin file has no directory component
 NVIDIA_DRIVER_LIBS += \
 	nvidia_drv.so:xorg/modules/drivers/ \
@@ -120,14 +111,6 @@ NVIDIA_DRIVER_LIBS += \
 ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_CUDA_PROGS),y)
 NVIDIA_DRIVER_PROGS = nvidia-cuda-mps-control nvidia-cuda-mps-server
 endif
-endif
-
-ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_OPENCL),y)
-NVIDIA_DRIVER_LIBS += \
-	libOpenCL.so.1.0.0 \
-	libnvidia-opencl.so.$(NVIDIA_DRIVER_VERSION)
-NVIDIA_DRIVER_DEPENDENCIES += mesa3d-headers
-NVIDIA_DRIVER_PROVIDES += libopencl
 endif
 
 # Build and install the kernel modules if needed
