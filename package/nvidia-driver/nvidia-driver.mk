@@ -21,32 +21,12 @@ ifeq ($(BR2_PACKAGE_NVIDIA_DRIVER_XORG),y)
 # they should be built prior to those packages, and the only simple
 # way to do so is to make nvidia-driver depend on them.
 NVIDIA_DRIVER_DEPENDENCIES += mesa3d-headers xlib_libX11 xlib_libXext
-NVIDIA_DRIVER_PROVIDES += libgl libegl libgles
-
-NVIDIA_DRIVER_LIBS_GL = \
-	libGLX.so.0 \
-	libglxserver_nvidia.so.$(NVIDIA_DRIVER_VERSION) \
-	libGL.so.1.7.0 \
-	libGLX_nvidia.so.$(NVIDIA_DRIVER_VERSION)
-
-NVIDIA_DRIVER_LIBS_EGL = \
-	libEGL.so.1.1.0 \
-	libEGL.so.$(NVIDIA_DRIVER_VERSION) \
-	libGLdispatch.so.0 \
-	libEGL_nvidia.so.$(NVIDIA_DRIVER_VERSION)
-
-NVIDIA_DRIVER_LIBS_GLES = \
-	libGLESv1_CM.so.1.2.0 \
-	libGLESv2.so.2.1.0 \
-	libGLESv1_CM_nvidia.so.$(NVIDIA_DRIVER_VERSION) \
-	libGLESv2_nvidia.so.$(NVIDIA_DRIVER_VERSION)
+#NVIDIA_DRIVER_PROVIDES += 
 
 NVIDIA_DRIVER_LIBS_MISC = \
 	libnvidia-allocator.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-api.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-cfg.so.$(NVIDIA_DRIVER_VERSION) \
-	libnvidia-eglcore.so.$(NVIDIA_DRIVER_VERSION) \
-	libnvidia-egl-gbm.so.1.1.1 \
 	libnvidia-glcore.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-glsi.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-glvkspirv.so.$(NVIDIA_DRIVER_VERSION) \
@@ -54,20 +34,7 @@ NVIDIA_DRIVER_LIBS_MISC = \
 	libnvidia-rtcore.so.$(NVIDIA_DRIVER_VERSION)
 
 NVIDIA_DRIVER_LIBS += \
-	$(NVIDIA_DRIVER_LIBS_GL) \
-	$(NVIDIA_DRIVER_LIBS_EGL) \
-	$(NVIDIA_DRIVER_LIBS_GLES) \
 	$(NVIDIA_DRIVER_LIBS_MISC)
-
-# Install the gl.pc file
-define NVIDIA_DRIVER_INSTALL_GL_DEV
-	$(INSTALL) -D -m 0644 $(@D)/libGL.la $(STAGING_DIR)/usr/lib/libGL.la
-	$(SED) 's:__GENERATED_BY__:Buildroot:' $(STAGING_DIR)/usr/lib/libGL.la
-	$(SED) 's:__LIBGL_PATH__:/usr/lib:' $(STAGING_DIR)/usr/lib/libGL.la
-	$(SED) 's:-L[^[:space:]]\+::' $(STAGING_DIR)/usr/lib/libGL.la
-	$(INSTALL) -D -m 0644 package/nvidia-driver/gl.pc $(STAGING_DIR)/usr/lib/pkgconfig/gl.pc
-	$(INSTALL) -D -m 0644 package/nvidia-driver/egl.pc $(STAGING_DIR)/usr/lib/pkgconfig/egl.pc
-endef
 
 # Those libraries are 'private' libraries requiring an agreement with
 # NVidia to develop code for those libs. There seems to be no restriction
@@ -87,14 +54,7 @@ NVIDIA_DRIVER_LIBS += \
 	nvidia_drv.so:xorg/modules/drivers/ \
 	libnvidia-pkcs11.so.$(NVIDIA_DRIVER_VERSION) \
 	libnvidia-pkcs11-openssl3.so.$(NVIDIA_DRIVER_VERSION) \
-	libnvidia-tls.so.$(NVIDIA_DRIVER_VERSION) \
-	libglx.so.$(NVIDIA_DRIVER_VERSION):xorg/modules/extensions/
-
-# libglx needs a symlink according to the driver README. It has no SONAME
-define NVIDIA_DRIVER_SYMLINK_LIBGLX
-	ln -sf libglx.so.$(NVIDIA_DRIVER_VERSION) \
-		$(TARGET_DIR)/usr/lib/xorg/modules/extensions/libglx.so
-endef
+	libnvidia-tls.so.$(NVIDIA_DRIVER_VERSION)
 
 endif # X drivers
 
