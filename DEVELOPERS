@@ -241,6 +241,7 @@ F:	package/jq/
 F:	package/libapparmor/
 F:	package/libb64/
 F:	package/libdill/
+F:	package/libkcapi/
 F:	package/mender/
 F:	package/mender-artifact/
 F:	package/mono/
@@ -2581,7 +2582,7 @@ F:	toolchain/toolchain-bare-metal-buildroot/
 N:	Nicola Di Lieto <nicola.dilieto@gmail.com>
 F:	package/uacme/
 
-N:	Nicolas Carrier <nicolas.carrier@orolia.com>
+N:	Nicolas Carrier <carrier.nicolas0@gmail.com>
 F:	package/bmap-tools/
 F:	package/composer/
 F:	package/libdbi/
@@ -3239,9 +3240,6 @@ F:	package/tl-expected/
 N:	Takumi Takahashi <takumiiinn@gmail.com>
 F:	package/gsettings-desktop-schemas/
 F:	package/libcanberra/
-
-N:	Tan En De <ende.tan@starfivetech.com>
-F:	package/libkcapi/
 
 N:	Theo Debrouwere <t.debrouwere@televic.com>
 F:	package/pugixml/
